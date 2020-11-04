@@ -1,0 +1,17 @@
+Problem: TWO + TWO = FOUR
+Model: Ter uma variavel para cada letra.
+
+
+Problem: N-Queens
+Model: Ter um array de variaveis de decisão que podem tomar o valor 1..N
+As constraints devem garantir que nenhum destes numeros são iguais e que em cada
+indice x, o numero nesse indice x não é igual ao numero no indice y +/- (y-x)
+Ter notação algebrica
+
+Problem: Magic Squares
+
+
+Problem: Vending Machine
+
+
+Problem: Stable Marriage
