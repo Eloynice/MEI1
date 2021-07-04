@@ -1,0 +1,42 @@
+Burned full
+
+Linear Reg
+Greedy
+
+Training set
+Correlation coefficient                  0.6684
+Mean absolute error                     83.4192
+Root mean squared error                174.6733
+Relative absolute error                 63.6556 %
+Root relative squared error             74.3841 %
+
+Gauss Puk
+
+Training set
+Correlation coefficient                  0.9932
+Mean absolute error                     59.3553
+Root mean squared error                114.8262
+Relative absolute error                 45.293  %
+Root relative squared error             48.8984 %
+
+
+Multilayer
+
+Training set
+Correlation coefficient                  0.9992
+Mean absolute error                     14.1032
+Root mean squared error                 17.052 
+Relative absolute error                 10.7619 %
+Root relative squared error              7.2616 %
+
+
+
+Smo puk
+
+Training set
+Correlation coefficient                  1     
+Mean absolute error                      1.6113
+Root mean squared error                  1.747 
+Relative absolute error                  1.2296 %
+Root relative squared error              0.744  %
+

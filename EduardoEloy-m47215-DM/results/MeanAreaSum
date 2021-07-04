@@ -1,0 +1,87 @@
+Summer sample
+Mean Area
+
+
+Linear Regression
+
+MS5
+
+Training set
+Correlation coefficient                  0.3885
+Mean absolute error                     11.3618
+Root mean squared error                 16.0153
+Relative absolute error                 95.4163 %
+Root relative squared error             92.1463 %
+
+CROSS VAL
+Correlation coefficient                 -0.424 
+Mean absolute error                     17.8196
+Root mean squared error                 25.3051
+Relative absolute error                144.1054 %
+Root relative squared error            140.2041 %
+
+Greedy
+
+Training set
+Correlation coefficient                  0.3885
+Mean absolute error                     11.3618
+Root mean squared error                 16.0153
+Relative absolute error                 95.4163 %
+Root relative squared error             92.1463 %
+
+Cross val
+Correlation coefficient                 -0.3836
+Mean absolute error                     17.222 
+Root mean squared error                 24.8046
+Relative absolute error                139.2728 %
+Root relative squared error            137.4311 %
+
+
+Gauss Puk
+
+Training set
+Correlation coefficient                  0.9986
+Mean absolute error                      6.2745
+Root mean squared error                  9.1554
+Relative absolute error                 52.6934 %
+Root relative squared error             52.677  %
+
+Cross val
+Correlation coefficient                 -0.7436
+Mean absolute error                     12.5731
+Root mean squared error                 18.3188
+Relative absolute error                101.6775 %
+Root relative squared error            101.496  %
+
+Multilayer
+
+Training set
+Correlation coefficient                  1     
+Mean absolute error                      0.1527
+Root mean squared error                  0.191 
+Relative absolute error                  1.2824 %
+Root relative squared error              1.0988 %
+
+Cross val
+Correlation coefficient                 -0.3187
+Mean absolute error                     30.0651
+Root mean squared error                 41.8752
+Relative absolute error                243.134  %
+Root relative squared error            232.0112 %
+
+Smo puk
+
+Training set
+orrelation coefficient                  1     
+Mean absolute error                      0.0734
+Root mean squared error                  0.0848
+Relative absolute error                  0.6162 %
+Root relative squared error              0.4877 %
+
+Cross val
+Correlation coefficient                 -0.5781
+Mean absolute error                     12.7426
+Root mean squared error                 18.6339
+Relative absolute error                103.0484 %
+Root relative squared error            103.2418 %
+

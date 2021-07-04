@@ -1,0 +1,92 @@
+Summer sample
+Number of Fires
+
+
+Linear Regression
+
+MS5
+
+Training Set
+Correlation coefficient                  0.6448
+Mean absolute error                    165.8187
+Root mean squared error                249.2869
+Relative absolute error                 76.3631 %
+Root relative squared error             76.439  %
+
+Cross Val
+Correlation coefficient                  0.212 
+Mean absolute error                    210.2471
+Root mean squared error                356.5376
+Relative absolute error                 93.2373 %
+Root relative squared error            105.2763 %
+
+Greedy
+
+Training set
+Correlation coefficient                  0.6448
+Mean absolute error                    165.8187
+Root mean squared error                249.2869
+Relative absolute error                 76.3631 %
+Root relative squared error             76.439  %
+
+Greedy
+Correlation coefficient                  0.2082
+Mean absolute error                    205.578 
+Root mean squared error                355.1582
+Relative absolute error                 91.1667 %
+Root relative squared error            104.869  %
+
+Gauss
+
+Training set
+Correlation coefficient                  0.9968
+Mean absolute error                    110.5328
+Root mean squared error                165.5926
+Relative absolute error                 50.9028 %
+Root relative squared error             50.7758 %
+
+Cross Val
+Correlation coefficient                 -0.1844
+Mean absolute error                    221.6906
+Root mean squared error                331.6897
+Relative absolute error                 98.3121 %
+Root relative squared error             97.9394 %
+
+Multilayer
+
+Training set
+Correlation coefficient                  1     
+Mean absolute error                      2.09  
+Root mean squared error                  2.5715
+Relative absolute error                  0.9625 %
+Root relative squared error              0.7885 %
+
+Cross val
+Correlation coefficient                  0.0634
+Mean absolute error                    470.9814
+Root mean squared error                681.3341
+Relative absolute error                208.864  %
+Root relative squared error            201.1803 %
+
+SMO Reg
+
+Training set
+Correlation coefficient                  1     
+Mean absolute error                      1.4186
+Root mean squared error                  1.5923
+Relative absolute error                  0.6533 %
+Root relative squared error              0.4882 %
+
+Cross val
+Correlation coefficient                  0.0636
+Mean absolute error                    214.0294
+Root mean squared error                326.5549
+Relative absolute error                 94.9147 %
+Root relative squared error             96.4232 %
+
+
+
+
+
+
+

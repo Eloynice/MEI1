@@ -1,0 +1,87 @@
+Full Sample
+Number of Fires
+
+
+Linear Regression
+
+Training Set
+
+MS5
+Correlation coefficient                  0.936 
+Mean absolute error                      2.2267
+Root mean squared error                  3.5335
+Relative absolute error                 28.3126 %
+Root relative squared error             35.1909 %
+
+Greedy
+Correlation coefficient                  0.936 
+Mean absolute error                      2.2267
+Root mean squared error                  3.5335
+Relative absolute error                 28.3126 %
+Root relative squared error             35.1909 %
+
+Cross Val
+
+MS5
+Correlation coefficient                  0.8721
+Mean absolute error                      3.0305
+Root mean squared error                  4.9332
+Relative absolute error                 37.9311 %
+Root relative squared error             48.3627 %
+
+Greedy
+Correlation coefficient                  0.8964
+Mean absolute error                      2.7361
+Root mean squared error                  4.4575
+Relative absolute error                 34.2454 %
+Root relative squared error             43.6994 %
+
+
+Gaussian Puk
+
+Training set
+Correlation coefficient                  0.9964
+Mean absolute error                      3.4182
+Root mean squared error                  4.452 
+Relative absolute error                 43.4629 %
+Root relative squared error             44.3386 %
+
+Cross Val
+Correlation coefficient                  0.7882
+Mean absolute error                      6.7468
+Root mean squared error                  8.8109
+Relative absolute error                 84.4445 %
+Root relative squared error             86.3779 %
+
+Multilayer
+
+TRaining set
+Correlation coefficient                  0.9966
+Mean absolute error                      0.9732
+Root mean squared error                  1.2264
+Relative absolute error                 12.3742 %
+Root relative squared error             12.2135 %
+
+Cross Val
+Correlation coefficient                  0.7979
+Mean absolute error                      4.3275
+Root mean squared error                  6.5258
+Relative absolute error                 54.164  %
+Root relative squared error             63.9761 %
+
+Smo puk
+
+Training set
+Correlation coefficient                  1     
+Mean absolute error                      0.0375
+Root mean squared error                  0.0417
+Relative absolute error                  0.477  %
+Root relative squared error              0.4154 %
+
+Cross Val
+Correlation coefficient                  0.8162
+Mean absolute error                      5.8075
+Root mean squared error                  7.8432
+Relative absolute error                 72.6886 %
+Root relative squared error             76.8916 %
+
