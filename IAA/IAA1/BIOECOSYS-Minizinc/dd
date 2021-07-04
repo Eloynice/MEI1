@@ -1,0 +1,129 @@
+[1mdiff --git a/MODEL.mzn b/MODEL.mzn[m
+[1mindex 4654333..b693f87 100644[m
+[1m--- a/MODEL.mzn[m
+[1m+++ b/MODEL.mzn[m
+[36m@@ -4,6 +4,20 @@[m [marray[UG] of var 0..628: ugs;[m
+ [m
+ array[UG, 1..75] of int: ugs_presc;[m
+ array[1..1373] of int: lengths;[m
+[32m+[m[32marray[1..1373] of float: area;[m
+[32m+[m[32marray[1..1373] of float: adj_area;[m
+[32m+[m[32marray[UG, 1..75,1..10] of 0..628: hascut;[m
+[32m+[m[32marray[UG, 1..20] of int: adj;[m
+[32m+[m[32marray[1..1373] of int: adj_l;[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32mfunction float: getAreaCut(int: ug, int: period, float:cut) = cut + forall(viz in 1..adj_l[ug])([m
+[32m+[m[32mforall(j in 1..75)(if(hascut[adj[ug,viz], j, 1] == ugs[adj[ug,viz]]) then[m
+[32m+[m[32mforall(k in 2..10)(if(hascut[adj[ug,viz], j, k] == period) then area[adj[ug,viz]] else 0 endif)endif));[m
+[32m+[m
+[32m+[m
+[32m+[m
+ [m
+ predicate recall(int: i, int: presc_i, int: len) =[m
+         if(presc_i == len) then ugs[i] = ugs_presc[i,presc_i] else[m
+[36m@@ -12,6 +26,10 @@[m [mpredicate recall(int: i, int: presc_i, int: len) =[m
+ constraint forall(i in UG)( if(lengths[i] == 0) then ugs[i] = 0 else[m
+         ugs[i] = ugs_presc[i,1] \/ recall(i, 1,lengths[i]) endif);[m
+ [m
+[32m+[m[32mconstraint forall(i in UG)(forall(j in 1..75)(if(hascut[i,j,1] == ugs[i]) then forall(k in 2..10)(getAreaCut(i, hascut[i,j,k], area[i]) <= 500) endif));[m[41m       [m
+[32m+[m[41m                [m
+[32m+[m[41m                                [m
+[32m+[m
+ solve satisfy;[m
+ [m
+ [m
+[1mdiff --git a/Makefile b/Makefile[m
+[1mindex f48006a..0fb752d 100644[m
+[1m--- a/Makefile[m
+[1m+++ b/Makefile[m
+[36m@@ -5,6 +5,7 @@[m [mcreate_dzn:[m
+ 	python3 create_dzn.py > MODEL.dzn[m
+ 	sed -i 's/(/''/g' MODEL.dzn[m
+ 	sed -i 's/)/''/g' MODEL.dzn[m
+[32m+[m	[32mpython3 create_dzn2.py > MODEL2.dzn[m
+ 	[m
+ adj_area: symbolic[m
+ 	cut -d, -f1 input/Adjacencias_VSousa2.csv > i.csv[m
+[1mdiff --git a/create_dzn.py b/create_dzn.py[m
+[1mindex 2c9108b..5a5b1f4 100644[m
+[1m--- a/create_dzn.py[m
+[1m+++ b/create_dzn.py[m
+[36m@@ -4,6 +4,10 @@[m [mcon = sqlite3.connect("database2.db")[m
+ cur = con.cursor()[m
+ DZN = "ugs_presc = [| "[m
+ LENS = "lengths = ["[m
+[32m+[m[32mAREA = "area = ["[m
+[32m+[m[32mADJ = "adj_area = ["[m
+[32m+[m[32mADJ_UG = "adj = [| "[m
+[32m+[m[32mADJ_L = "adj_l = [ "[m
+ [m
+ for i in range(1, 1374):[m
+ 	cur.execute("SELECT distinct presc FROM action where ug like "+str(i)) [m
+[36m@@ -21,13 +25,64 @@[m [mfor i in range(1, 1374):[m
+ 				DZN = DZN + "0),"	[m
+ 		DZN = DZN[:-2] + " |\n"[m
+ 		LENS = LENS + str(len(result))+","[m
+[32m+[m[41m		[m
+[32m+[m	[32mcur.execute("SELECT area FROM area where ug like "+str(i))[m[41m [m
+[32m+[m	[32mresult = cur.fetchall()[m
+[32m+[m	[32mAREA = AREA + str(result[0])[m
+[32m+[m[41m	[m
+[32m+[m	[32mcur.execute("SELECT adj_area FROM adj_area where ug_id like "+str(i))[m[41m [m
+[32m+[m	[32mresult = cur.fetchall()[m
+[32m+[m	[32mADJ = ADJ + str(result[0])[m
+[32m+[m[41m	[m
+[32m+[m	[32mcur.execute("Select ug2 from adj where ug1 like "+str(i))[m
+[32m+[m	[32mresult = cur.fetchall()[m
+[32m+[m	[32ml = len(result)[m
+[32m+[m	[32mfor j in range(0, len(result)):[m
+[32m+[m		[32mADJ_UG = ADJ_UG + str(result[j])[m[41m	[m
+[32m+[m	[32mfor j in range(len(result), 20):[m
+[32m+[m		[32mADJ_UG = ADJ_UG + "0),"[m[41m	[m
+[32m+[m[41m	[m
+[32m+[m	[32mADJ_UG = ADJ_UG[:-2] + " |\n"[m
+[32m+[m	[32mADJ_L = ADJ_L + str(len(result))+","[m
+[32m+[m
+[32m+[m[41m	[m
+[32m+[m[41m	[m
+[32m+[m
+[32m+[m
+[32m+[m
+ DZN = DZN[:-1][m
+ DZN = DZN + "];"[m
+ print(DZN)[m
+ [m
+ print("\n")[m
+ [m
+[31m-[m
+ LENS = LENS[:-1][m
+ LENS = LENS + " ];"[m
+ print(LENS)[m
+[32m+[m
+[32m+[m[32mprint("\n")[m
+[32m+[m
+[32m+[m[32mAREA = AREA[:-2][m
+[32m+[m[32mAREA = AREA + " ];"[m
+[32m+[m[32mprint(AREA)[m
+[32m+[m
+[32m+[m[32mprint("\n")[m
+[32m+[m
+[32m+[m[32mADJ = ADJ[:-2][m
+[32m+[m[32mADJ = ADJ + " ];"[m
+[32m+[m[32mprint(ADJ)[m
+[32m+[m
+[32m+[m[32mprint("\n")[m
+[32m+[m
+[32m+[m[32mADJ_UG = ADJ_UG[:-1][m
+[32m+[m[32mADJ_UG = ADJ_UG + "];"[m
+[32m+[m[32mprint(ADJ_UG)[m
+[32m+[m
+[32m+[m[32mprint("\n")[m
+[32m+[m
+[32m+[m[32mADJ_L = ADJ_L[:-1][m
+[32m+[m[32mADJ_L = ADJ_L + "];"[m
+[32m+[m[32mprint(ADJ_L)[m
+[41m+[m
+[41m+[m
+[41m+[m
