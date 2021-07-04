@@ -1,0 +1,42 @@
+MPP - Message-Passing Programming
+Parallel computer
+Distributed address space
+Each processor has exclusive-use local memory
+There is no global memory
+Transfer data between processors using message-passing (with the data)
+
+MPP Programs:
+Set of processes/threads
+Usually, each process runs on a physical node
+The number of processes is fixed at startup
+Could be Multiple programs, multiple data streams (MPMD)
+Usually simplified to SPMD
+Library to allow message-passing between processes
+◦P2P communication
+◦Global communication (broadcast)
+◦Examples: MPI, GASNet
+
+MPI1 -> Standard communication, static process model
+MPI2 -> Dynamic process management, one-sidedcommunication, parallel I/O
+Different implementations, same (standard) interface for thedeveloper
+◦MPICH◦LAM/MPI◦OpenMP
+
+Recomendations for programming with MPI
+SPMD style
+One process deals with I/O
+Programs should be written for an arbitrary number of processes
+
+MPi Operations
+Blocking-Every state transition must be completed before controlreturns to the calling process
+Non-blocking-Call starts the operation, Control is returned immediately to the calling proces
+Onl relevant for the local process
+
+Comunication can be Synchronous and Asynchronous
+
+
+UPC
+
+Normal variables allocated in private memory per thread
+Shared variables allocated once, on thread 0
+Shared variables cannot have dynamic lifetime
+Shared variable access is more expensive

@@ -1,0 +1,13 @@
+mpicc -o foo foo.c 
+mpirun –v –np 2 foo
+mpirun –v –np 2 -oversubscribe foo
+
+
+upc
+./upcrun -n 2
+
+
+upcc -network=smp sumsquare.upc
+upcrun -n 4 ./a.out
+
+upcc -network=smp catmouse.upc
